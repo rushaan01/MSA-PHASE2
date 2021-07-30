@@ -6,11 +6,15 @@ name: Azure App Service - rushaans-msa-frontend(Production), Build and deploy No
 on:
   push:
     branches:
+      - main
       - actions
 
 jobs:
   build-and-deploy:
     runs-on: windows-latest
+    default: 
+      run:
+        working-directory:"./frontend"
 
     steps:
     # checkout the repo
@@ -35,5 +39,5 @@ jobs:
         app-name: rushaans-msa-frontend
         slot-name: Production
         publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_D6E02700C8C44578A92DE7174AA640CB }}
-        package: .
+        package: "/frontend/build"
 
