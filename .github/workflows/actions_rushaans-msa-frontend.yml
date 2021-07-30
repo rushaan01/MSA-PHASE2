@@ -28,7 +28,7 @@ jobs:
         node-version: '14.x'
 
     - name: npm install, build, and test
-      run: |
+      run: 
         npm install
         npm run build --if-present
         npm run test --if-present
@@ -39,5 +39,5 @@ jobs:
         app-name: rushaans-msa-frontend
         slot-name: Production
         publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_D6E02700C8C44578A92DE7174AA640CB }}
-        package: "/frontend/build"
+        package: "./frontend/build"
 
